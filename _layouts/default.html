@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en-us">
 
-  {% include head.html %}
+  {% include bloghead.html %}
 
   <body>
 
@@ -13,7 +13,7 @@
       <div class="masthead">
         <div class="container">
           <h3 class="masthead-title">
-            <a href="{{ site.baseurl }}/" title="Home">{{ site.title }}</a>
+            <a href="{{ site.baseurl }}/" title="Dulaj Chathuranga">{{ site.title }}</a>
             <small>{{ site.tagline }}</small>
           </h3>
         </div>
@@ -21,8 +21,17 @@
 
       <div class="container content">
         {{ content }}
+        
+        <div class="footer">
+          <p>
+             &copy; {{ site.time | date: '%Y' }} Dulaj Chathuranga
+          </p>
+        </div>
+        
       </div>
     </div>
+    
+    
 
     <label for="sidebar-checkbox" class="sidebar-toggle"></label>
 
@@ -31,14 +40,11 @@
         var toggle = document.querySelector('.sidebar-toggle');
         var sidebar = document.querySelector('#sidebar');
         var checkbox = document.querySelector('#sidebar-checkbox');
-
         document.addEventListener('click', function(e) {
           var target = e.target;
-
           if(!checkbox.checked ||
              sidebar.contains(target) ||
              (target === checkbox || target === toggle)) return;
-
           checkbox.checked = false;
         }, false);
       })(document);
